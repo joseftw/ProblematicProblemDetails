@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>A Basic HTML5 Template</title>
+  <meta name="description" content="A simple HTML5 Template for new projects.">
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <h1>ValidationProblemDetails JavaScript injection exploit</h1>
+  <input type="text" id="date-input" value="2021-01-23" />
+<button onclick="jqueryExploit()">jQuery exploit</button>
+<button onclick="vanillaJsMaliciousLinkExploit()">Vanilla JavaScript malicious link exploit</button>
+<div id="errors"></div>
+<div id="success"></div>
+
+<script>
+
+function jqueryExploit(){
+  var dateValue = $('#date-input').val();
+  console.log(dateValue);
+  var maliciousUrl = "https://localhost:7135/WeatherForecast?date=" + dateValue;
+$( "#success" ).load( maliciousUrl, function( response, status, xhr ) {
+  if ( status == "error" ) {
+    var problemDetails = JSON.parse(response);
+    var dateError = problemDetails.errors.date;
+    $( "#errors" ).html("<h1>Errors occured</h1>"+dateError );
+  }
+});
+
+}
+
+function vanillaJsMaliciousLinkExploit(){
+  var request = new XMLHttpRequest();
+  //executing on page
+  var dateValue = document.getElementById('date-input').value;
+  console.log(dateValue);
+  // with malicious link
+  request.open('GET', 'https://localhost:7135/WeatherForecast?date=2021-10-28' + dateValue , true);
+
+  request.onload = function() {
+    var data = JSON.parse(this.response);
+  console.log(data.errors.date);
+  document.getElementById('errors').innerHTML = "<h1>Errors occured</h1>"+data.errors.date;
+  };
+
+  request.onerror = function(resp) {
+    // There was a connection error of some sort
+  console.log('ERROR', resp);
+  };
+
+  request.send();
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "src\Api\Api.csproj", "{3DDC2E93-AB65-4BAF-A3A3-DB4C1A141F46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{E3DA9F79-B784-4FA4-B2EE-3E2CAE24C9E9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7E13F110-B102-4FC1-B485-A1A234A5C3F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DDC2E93-AB65-4BAF-A3A3-DB4C1A141F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDC2E93-AB65-4BAF-A3A3-DB4C1A141F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDC2E93-AB65-4BAF-A3A3-DB4C1A141F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDC2E93-AB65-4BAF-A3A3-DB4C1A141F46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DDC2E93-AB65-4BAF-A3A3-DB4C1A141F46} = {7E13F110-B102-4FC1-B485-A1A234A5C3F5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F205825-B90B-4F01-A135-B286A89A1A31}
+	EndGlobalSection
+EndGlobal
